@@ -8,13 +8,14 @@ f=open("test.py", "w")
 while True:
     line = input(">> ")
     if line == "exit" or line == "EXIT" :
+        with open("test.py", "a+") as f:
+            line = "quit=input('press enter to quit ')"
+            f.write(line)
         f.close
         break
     with open("test.py", "a+") as f:
         line = line + "\n"
         f.write(line)
-    
-
 
 q=input("you wanna run it ? ")
 if q=="yes" or q=="YES" or q=="y" or q=="Y":
